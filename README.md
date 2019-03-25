@@ -1,7 +1,7 @@
 # LISTA 1 - ESTRUTURA DE DADOS 2 - 2019/1
 
 ### Henrique Martins de Messias - 17/0050394
-### Victor Rodrigues - 
+### Victor Rodrigues Silva - 16/0019516
 
 <br>
 
