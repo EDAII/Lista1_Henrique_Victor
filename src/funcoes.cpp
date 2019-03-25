@@ -51,9 +51,19 @@ void remover_valor(vector<int>& v, int e) {
 
 void imprimir_vetor(vector<int>& v) {
     printf("\n[");
+
+    //Verifica se o vetor existe
     if(v.size() != 0){
+
+        //Percorre o vetor até o final
         for(unsigned int i = 0; i < v.size(); i++) {
-            printf("%d, ", v[i]);    
+            printf(" %d, ", v[i]);
+
+            int resto = i % 10;
+            //quebra a linha a cada 10 elementos
+            if(i > 1 && resto == 0) {
+                printf("\n");
+            }
         }
     }
     else {

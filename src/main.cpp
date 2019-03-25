@@ -16,8 +16,10 @@ int main() {
         menu_principal();
         scanf(" %d", &opcao);
 
+        system("clear");
+
         //Essa implementação pode ser subtituida pelo default do switch case.
-        
+
         //while(opcao < 0 || opcao > 7) {
           //  printf("Opção Inválida, tente novamente: ");
             //scanf(" %d", &opcao);
@@ -110,8 +112,7 @@ int main() {
                 printf("Programa encerrado.\n");
                 exit(0);
             default:
-                printf("Opção Inválida, tente novamente: ");
-                scanf(" %d", &opcao);
+                printf("Opção Inválida! ");
 
         }
     }    
