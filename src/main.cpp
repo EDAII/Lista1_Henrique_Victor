@@ -16,10 +16,12 @@ int main() {
         menu_principal();
         scanf(" %d", &opcao);
 
-        while(opcao < 0 || opcao > 7) {
-            printf("Opção Inválida, tente novamente: ");
-            scanf(" %d", &opcao);
-        }
+        //Essa implementação pode ser subtituida pelo default do switch case.
+        
+        //while(opcao < 0 || opcao > 7) {
+          //  printf("Opção Inválida, tente novamente: ");
+            //scanf(" %d", &opcao);
+        //}
 
         switch (opcao) {
             case 1:
@@ -101,9 +103,16 @@ int main() {
                 
                 printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
                 break;
+            case 8:
+                imprimir_vetor(v);
+                break;
             case 0:
                 printf("Programa encerrado.\n");
                 exit(0);
+            default:
+                printf("Opção Inválida, tente novamente: ");
+                scanf(" %d", &opcao);
+
         }
     }    
     
@@ -120,6 +129,7 @@ void menu_principal() {
     printf("5. Busca Sequencial com Sentinela\n");
     printf("6. Busca Binaria\n");
     printf("7. Busca por Interpolacao\n");
+    printf("8. Imprimir vetor na tela\n");
     printf("0. Encerrar\n\n");
 
     printf("Opcao: ");

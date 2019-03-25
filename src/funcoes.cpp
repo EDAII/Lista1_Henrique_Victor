@@ -48,3 +48,16 @@ void remover_valor(vector<int>& v, int e) {
     else
         printf("Elemento nao encontrado.\n");
 }
+
+void imprimir_vetor(vector<int>& v) {
+    printf("\n[");
+    if(v.size() != 0){
+        for(unsigned int i = 0; i < v.size(); i++) {
+            printf("%d, ", v[i]);    
+        }
+    }
+    else {
+        printf(" Vetor vazio!");
+    }
+    printf("]\n\n\n");
+}
