@@ -10,7 +10,7 @@ void menu_principal();
 int main() {
     int opcao, valor, encontrado;
     time_t tempo;
-    vector<int> v;
+    vector<int> v, index;
 
     while(1) {
         menu_principal();
@@ -107,6 +107,12 @@ int main() {
                 break;
             case 8:
                 imprimir_vetor(v);
+                break;
+            case 9:
+                printf("Insira o elemento que deseja buscar: ");
+                scanf(" %d", &valor);
+                index = gerar_tabela_index(v);
+                busca_sequencial_indexada(v, index, valor);
                 break;
             case 0:
                 printf("Programa encerrado.\n");
