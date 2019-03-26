@@ -56,3 +56,25 @@ int busca_interpolacao(vector<int>& v, int e) {
 
     return -1;
 }
+
+int busca_sequencial_indexada(vector<int>& v, vector<int> &index, int e) {
+    if(v.size() != 0) {
+        int i;
+
+        for(i = 0; i < index.size(); ++i)
+            if(index[i] > e)
+                break;
+
+        i--;
+
+        i = (i*v.size())/index.size();
+
+        for(i; i < v.size(); ++i) {
+            if(v[i] == e)
+                return i;
+            if(v[i] > e)
+                return -1;
+        }
+    }
+    return -1;
+}

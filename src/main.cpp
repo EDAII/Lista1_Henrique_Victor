@@ -114,8 +114,15 @@ int main() {
             case 9:
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
+                tempo = clock();
                 index = gerar_tabela_index(v);
-                busca_sequencial_indexada(v, index, valor);
+                encontrado = busca_sequencial_indexada(v, index, valor);
+                tempo = clock() - tempo;
+
+                if(encontrado != -1)
+                    printf("\nValor encontrado.\n");
+                else
+                    printf("\nValor não encontrado.\n");
                 break;
             case 10:
                 imprimir_vetor(v);

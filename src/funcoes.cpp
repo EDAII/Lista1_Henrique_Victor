@@ -102,35 +102,9 @@ vector<int> gerar_tabela_index(vector<int>& v) {
         for(unsigned int i = 0; i < v.size(); i += elementos){
             index.push_back(v[i]);
         }
-        for (auto x : index)
-            printf("%d ", x);
-        
-        printf("\n");
         return index;
     } else {
         printf("Impossivel gerar tabela de indices, o vetor não existe ou esta vazio!\n\n");
         return index;
     }
 }
-
-void busca_sequencial_indexada(vector<int>& v, vector<int> &index, int e) {
-    if(v.size() != 0) {
-        for(unsigned int i = 0; i < index.size(); i++) {
-            if(e >= index[i] && e <= index[i+1]) {
-                i += index.size();
-                for(int j = i ; v[j] <= e; j++) {
-                    if(e == v[j]) {
-                        printf("valor encontrado!\n\n");
-                        return;
-                    }
-                }
-            }
-        }
-    } else {
-        printf("impossivel fazer a busca, o vetor não existe ou está vazio!\n\n");
-    }
-}
-
-/* 7 13 25 42 52 54 66 73 84 90 */
-
-/* 7,  9,  9,  13,  16,  18,  25,  26,  37,  42,  50,  51,  52,  53,  53,  54,  56,  66,  66,  68,  70,  73,  80,  80,  84,  85,  86,  90,  96,  96 */
