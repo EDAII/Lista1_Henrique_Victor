@@ -27,7 +27,7 @@ int main() {
                 break;
             case 2:
                 printf("Gerar primos de 1 a n.\n");
-                printf("Insira o valor de n (maximo: 500.000.000): \n");
+                printf("Insira o valor de n: \n");
                 scanf(" %d", &valor);
                 while(valor > 500000000) {
                     printf("Valor maior que 500.000.000, tente novamente.\n");
@@ -115,8 +115,7 @@ int main() {
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
-                index = gerar_tabela_index(v);
-                encontrado = busca_sequencial_indexada(v, index, valor);
+                encontrado = busca_sequencial_indexada(v, valor);
                 tempo = clock() - tempo;
 
                 if(encontrado != -1)

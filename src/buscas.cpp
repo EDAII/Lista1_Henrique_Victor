@@ -57,9 +57,26 @@ int busca_interpolacao(vector<int>& v, int e) {
     return -1;
 }
 
-int busca_sequencial_indexada(vector<int>& v, vector<int> &index, int e) {
+vector<int> gerar_tabela_index(vector<int>& v) {
+
+    int elementos = v.size() / 10;
+    
+    vector<int> index;
+    
     if(v.size() != 0) {
-        int i;
+        for(unsigned int i = 0; i < v.size(); i += elementos){
+            index.push_back(v[i]);
+        }
+        return index;
+    } else {
+        return index;
+    }
+}
+
+int busca_sequencial_indexada(vector<int>& v, int e) {
+    if(v.size() != 0) {
+        vector<int> index = gerar_tabela_index(v);
+        unsigned int i;
 
         for(i = 0; i < index.size(); ++i)
             if(index[i] > e)
@@ -67,9 +84,7 @@ int busca_sequencial_indexada(vector<int>& v, vector<int> &index, int e) {
 
         i--;
 
-        i = (i*v.size())/index.size();
-
-        for(i; i < v.size(); ++i) {
+        for(i = (i*v.size())/index.size(); i < v.size(); ++i) {
             if(v[i] == e)
                 return i;
             if(v[i] > e)

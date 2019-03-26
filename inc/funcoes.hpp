@@ -10,6 +10,5 @@ void vetor_primos(vector<int>& v, int N);
 void inserir_valor(vector<int>& v, int e);
 void remover_valor(vector<int>& v, int e);
 void imprimir_vetor(vector<int>& v);
-vector<int> gerar_tabela_index(vector<int>& v);
 
 #endif // FUNCOES_HPP

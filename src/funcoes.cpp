@@ -90,21 +90,3 @@ void imprimir_vetor(vector<int>& v) {
     }
     printf("]\n\n\n");
 }
-
-
-vector<int> gerar_tabela_index(vector<int>& v) {
-
-    int elementos = v.size() / 10;
-    
-    vector<int> index;
-    
-    if(v.size() != 0) {
-        for(unsigned int i = 0; i < v.size(); i += elementos){
-            index.push_back(v[i]);
-        }
-        return index;
-    } else {
-        printf("Impossivel gerar tabela de indices, o vetor não existe ou esta vazio!\n\n");
-        return index;
-    }
-}
