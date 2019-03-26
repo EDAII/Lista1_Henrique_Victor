@@ -143,7 +143,7 @@ void menu_principal() {
     printf("6. Busca Sequencial com Sentinela\n");
     printf("7. Busca Binaria\n");
     printf("8. Busca por Interpolacao\n");
-    printf("9. Busca por Indexada\n");
+    printf("9. Busca Indexada\n");
     printf("10. Imprimir vetor na tela\n");
     printf("0. Encerrar\n\n");
 
