@@ -28,6 +28,25 @@ void vetor_aleatorio(vector<int>& v) {
     printf("\nVetor aleatorio gerado.\n");
 }
 
+void vetor_primos(vector<int>& v, int N) {
+    int max = 500000010;
+    vector<int>isprime(max , true); 
+    vector<int>SPF(max);
+    isprime[0] = isprime[1] = false ; 
+  
+    for (int i=2; i<N ; i++) { 
+        if (isprime[i]) { 
+            v.push_back(i); 
+            SPF[i] = i; 
+        } 
+  
+        for (int j=0; j < (int)v.size() && i*v[j] < N && v[j] <= SPF[i]; j++) { 
+            isprime[i*v[j]]=false; 
+            SPF[i*v[j]] = v[j] ; 
+        } 
+    }
+}
+
 void inserir_valor(vector<int>& v, int e) {
     v.push_back(e);
     sort(v.begin(), v.end());
