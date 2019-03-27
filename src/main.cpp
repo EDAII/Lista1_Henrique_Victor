@@ -122,6 +122,7 @@ int main() {
                     printf("\nValor encontrado.\n");
                 else
                     printf("\nValor não encontrado.\n");
+                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
                 break;
             case 10:
                 imprimir_vetor(v);
@@ -131,7 +132,6 @@ int main() {
                 exit(0);
             default:
                 printf("Opção Inválida! ");
-
         }
     }    
     
@@ -149,7 +149,7 @@ void menu_principal() {
     printf("6. Busca Sequencial com Sentinela\n");
     printf("7. Busca Binaria\n");
     printf("8. Busca por Interpolacao\n");
-    printf("9. Busca Indexada\n");
+    printf("9. Busca Sequencial Indexada\n");
     printf("10. Imprimir vetor na tela\n");
     printf("0. Encerrar\n\n");
 
