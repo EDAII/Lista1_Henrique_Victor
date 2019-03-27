@@ -96,10 +96,3 @@ void pause() {
 	printf("\nPressione 'Enter' para voltar ao menu principal\n");
 	getchar();
 }
-
-/*
-
-60000000
-0.877726 segundos
-
-*/
