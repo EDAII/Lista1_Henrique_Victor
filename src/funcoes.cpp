@@ -90,3 +90,10 @@ void imprimir_vetor(vector<int>& v) {
     }
     printf("]\n\n\n");
 }
+
+//Função auxiliar que pausa o programa para melhor usabilidade
+void pause() {
+    getchar();
+	printf("\nPressione 'Enter' para voltar ao menu principal\n");
+	getchar();
+}
