@@ -11,8 +11,12 @@ int main() {
     int opcao, valor, encontrado;
     time_t tempo;
     vector<int> v, index;
+    string vetor_atual = "Nenhum";
+    bool modificado;
 
     while(1) {
+        system("clear");
+        printf("Vetor atual: %s\n\n", vetor_atual.c_str());
         menu_principal();
         scanf(" %d", &opcao);
 
@@ -23,40 +27,56 @@ int main() {
                 tempo = clock();
                 vetor_aleatorio(v);
                 tempo = clock() - tempo;
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                vetor_atual = "Vetor aleatorio";
+                modificado = false;
                 pause();
                 break;
             case 2:
                 printf("Gerar primos de 1 a n.\n");
-                printf("Insira o valor de n: \n");
+                printf("Insira o valor de n: ");
                 scanf(" %d", &valor);
-                while(valor > 500000000) {
-                    printf("Valor maior que 500.000.000, tente novamente.\n");
+                while(valor < 2 && valor > 50000000) {
+                    if(valor < 2)
+                        printf("Valor menor que 2, tente novamente.\n");
+                    else
+                        printf("Valor maior que 50.000.000, tente novamente.\n");
+                        
                     scanf(" %d", &valor);
                 }
                 tempo = clock();
                 vetor_primos(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                vetor_atual = "Vetor de Primos";
+                modificado = false;
                 pause();
                 break;
             case 3:
-                printf("Insira o elemento que deseja inserir: ");
+                printf("Digite o elemento que deseja inserir: ");
                 scanf(" %d", &valor);
                 tempo = clock();
                 inserir_valor(v, valor);
                 tempo = clock() - tempo;
                 printf("Elemento inserido com sucesso.\n");
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                if(!modificado) {
+                    vetor_atual += " (modificado)";
+                    modificado = true;
+                }
                 pause();
                 break;
             case 4:
-                printf("Insira o elemento que deseja remover: ");
+                printf("Digite o elemento que deseja remover: ");
                 scanf(" %d", &valor);
                 tempo = clock();
                 remover_valor(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                if(!modificado) {
+                    vetor_atual += " (modificado)";
+                    modificado = true;
+                }
                 pause();
                 break;
             case 5:
@@ -71,7 +91,7 @@ int main() {
                 else
                     printf("\nValor não encontrado.\n");
                 
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
             case 6:
@@ -86,7 +106,7 @@ int main() {
                 else
                     printf("\nValor não encontrado.\n");
                 
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
             case 7:
@@ -101,7 +121,7 @@ int main() {
                 else
                     printf("\nValor não encontrado.\n");
                 
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
             case 8:
@@ -116,7 +136,7 @@ int main() {
                 else
                     printf("\nValor não encontrado.\n");
                 
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
             case 9:
@@ -130,7 +150,7 @@ int main() {
                     printf("\nValor encontrado.\n");
                 else
                     printf("\nValor não encontrado.\n");
-                printf("Tempo: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
             case 10:
@@ -211,7 +231,6 @@ int main() {
 }
 
 void menu_principal() {
-    system("clear");
     printf("ESCOLHA UMA OPCAO:\n\n");
 
     printf("1. Gerar vetor aleatorio\n");

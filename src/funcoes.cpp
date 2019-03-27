@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <bitset>
 
 #include "funcoes.hpp"
 #include "buscas.hpp"
@@ -29,21 +30,19 @@ void vetor_aleatorio(vector<int>& v) {
 }
 
 void vetor_primos(vector<int>& v, int N) {
-    int max = 500000010;
-    vector<int>isprime(max , true); 
-    vector<int>SPF(max);
-    isprime[0] = isprime[1] = false ; 
-  
-    for (int i=2; i<N ; i++) { 
-        if (isprime[i]) { 
-            v.push_back(i); 
-            SPF[i] = i; 
-        } 
-  
-        for (int j=0; j < (int)v.size() && i*v[j] < N && v[j] <= SPF[i]; j++) { 
-            isprime[i*v[j]]=false; 
-            SPF[i*v[j]] = v[j] ; 
-        } 
+    v.clear();
+    bitset<50000010> sieve;
+    sieve.set();
+
+    v.push_back(2);
+
+    for (long long i = 3; i <= N; i += 2) {
+        if (sieve[i]) {
+            v.push_back(i);
+
+            for (long long j = i * i; j <= N; j += 2*i)
+                sieve[j] = false;
+        }
     }
 }
 
@@ -97,3 +96,10 @@ void pause() {
 	printf("\nPressione 'Enter' para voltar ao menu principal\n");
 	getchar();
 }
+
+/*
+
+60000000
+0.877726 segundos
+
+*/
