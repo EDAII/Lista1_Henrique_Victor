@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void vetor_aleatorio(vector<int>& v);
+void vetor_aleatorio(vector<int>& v, int quant, int limite);
 void vetor_primos(vector<int>& v, int N);
 void vetor_fibo(vector<int>& v, int N);
 void inserir_valor(vector<int>& v, int e);

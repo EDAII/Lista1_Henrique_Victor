@@ -9,24 +9,14 @@
 
 using namespace std;
 
-void vetor_aleatorio(vector<int>& v) {
+void vetor_aleatorio(vector<int>& v, int quant, int limite) {
     v.clear();
-
-    int quant, limite;
     srand(time(0));
-
-    printf("Insira a quantidade de elementos: ");
-    scanf(" %d", &quant);
-
-    printf("Insira o limite do valor dos elementos: ");
-    scanf(" %d", &limite);
 
     for(int i = 0; i < quant; ++i) 
         v.push_back(rand() % limite);
     
     sort(v.begin(), v.end());
-
-    printf("\nVetor aleatorio gerado.\n");
 }
 
 void vetor_primos(vector<int>& v, int N) {

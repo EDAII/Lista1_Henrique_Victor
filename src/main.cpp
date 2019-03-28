@@ -8,9 +8,9 @@ using namespace std;
 void menu_principal();
 
 int main() {
-    int opcao, valor, encontrado;
+    int opcao, valor, encontrado, limite;
     time_t tempo;
-    vector<int> v, index;
+    vector<int> v;
     string vetor_atual = "Nenhum";
     bool modificado;
 
@@ -25,9 +25,15 @@ int main() {
         switch (opcao) {
             case 1:
                 printf("Opcao escolhida: Gerar vetor aleatorio\n");
+                printf("Insira a quantidade de elementos: ");
+                scanf(" %d", &valor);
+                printf("A lista ira gerar %d elementos aleatorios de 0 a n.\n", valor);
+                printf("Insira o valor de n: ");
+                scanf(" %d", &limite);
                 tempo = clock();
-                vetor_aleatorio(v);
+                vetor_aleatorio(v, valor, limite+1);
                 tempo = clock() - tempo;
+                printf("\nVetor aleatorio gerado.\n");
                 printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 vetor_atual = "Vetor aleatorio";
                 modificado = false;
@@ -49,6 +55,7 @@ int main() {
                 tempo = clock();
                 vetor_primos(v, valor);
                 tempo = clock() - tempo;
+                printf("\nVetor de primos gerado.\n");
                 printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 vetor_atual = "Vetor de Primos";
                 modificado = false;
@@ -69,6 +76,7 @@ int main() {
                 tempo = clock();
                 vetor_fibo(v, valor);
                 tempo = clock() - tempo;
+                printf("\nVetor de Fibonacci gerado.\n");
                 printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 vetor_atual = "Vetor de Fibonacci";
                 modificado = false;
