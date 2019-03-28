@@ -64,13 +64,8 @@ vector<int> gerar_tabela_index(vector<int>& v) {
     if(tamanho_index == 0)
         index.push_back(0);
 
-    for(int i = 0; i < tamanho_index; ++i) {
-        unsigned int j = i * 10000;
-        if(j > v.size())
-            break;
-        
-        index.push_back(v[j]);
-    }
+    for(int i = 0; i < tamanho_index; ++i)
+        index.push_back(v[i * 10000]);
 
     return index;
 }
