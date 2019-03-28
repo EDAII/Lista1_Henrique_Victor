@@ -61,10 +61,8 @@ vector<int> gerar_tabela_index(vector<int>& v) {
     int tamanho_index = v.size() / 10000;
     vector<int> index;
 
-    if(tamanho_index == 0) {
+    if(tamanho_index == 0)
         index.push_back(0);
-        return index;
-    }
 
     for(int i = 0; i < tamanho_index; ++i) {
         unsigned int j = i * 10000;
@@ -78,22 +76,21 @@ vector<int> gerar_tabela_index(vector<int>& v) {
 }
 
 int busca_sequencial_indexada(vector<int>& v, int e) {
-    if(v.size() != 0) {
-        vector<int> index = gerar_tabela_index(v);
-        unsigned int i;
+    vector<int> index = gerar_tabela_index(v);
+    unsigned int i;
 
-        for(i = 0; i < index.size(); ++i)
-            if(index[i] > e)
-                break;
+    for(i = 0; i < index.size(); ++i)
+        if(index[i] > e)
+            break;
 
-        i--;
+    i--;
 
-        for(i = (i*v.size())/index.size(); i < v.size(); ++i) {
-            if(v[i] == e)
-                return i;
-            if(v[i] > e)
-                return -1;
-        }
+    for(i = (i*v.size())/index.size(); i < v.size(); ++i) {
+        if(v[i] == e)
+            return i;
+        if(v[i] > e)
+            return -1;
     }
+    
     return -1;
 }

@@ -27,8 +27,23 @@
     $ make clean
   ```
 
-<br>
-
 ### Detalhes da Lista 1:
 
-(Adicionar informações)
+O código presente neste repositório é sobre como são
+feitas alguns tipos de busca e quão eficientes elas são.
+Há, no código, os seguintes tipos de busca:
+ - Busca Sequencial
+ - Busca Sequencial com Sentinela
+ - Busca Binária
+ - Busca por Interpolação
+ - Busca Sequencial Indexada
+
+Estas buscas são feitas em um vetor (vector padrão do C++)
+que pode ser modificado ao inserir e remover elementos.
+Há três formas rápidas de se gerar um vetor:
+ - Gerar vetor aleatório
+ - Gerar vetor de primos
+ - Gerar vetor de Fibonacci
+
+O usuário pode imprimir o vetor, caso deseje. <br>
+Há também a opção de realizar todos os tipos de busca e comparar o tempo entre elas.
