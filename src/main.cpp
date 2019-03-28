@@ -191,37 +191,37 @@ int main() {
                 //Busca sequencial
                 printf("\n------------ Busca sequencial ----------> ");
                 tempo = clock();
-                encontrado = busca_sequencial(v, valor);
+                busca_sequencial(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca Sequencial com sentinela                
                 printf("\n---- Busca sequencial com sentinela ----> ");
                 tempo = clock();
                 busca_sequencial_sentinela(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca Binaria
                 printf("\n------------ Busca binaria -------------> ");
                 tempo = clock();
-                busca_binaria(v, valor);
+                encontrado = busca_binaria(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca por interpolacao
                 printf("\n-------- Busca por interpolação --------> ");
                 tempo = clock();
                 busca_interpolacao(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //busca sequencial indexada
                 printf("\n------ Busca sequencial indexada -------> ");
                 tempo = clock();
                 busca_sequencial_indexada(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 if(encontrado != -1)
                     printf("\nValor encontrado. Posicao: %d\n", encontrado);

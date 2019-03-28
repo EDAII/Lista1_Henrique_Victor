@@ -1,6 +1,9 @@
 #include "buscas.hpp"
 
 int busca_binaria(vector<int>& v, int e) {
+    if(!v.size())
+        return -1;
+
     int inicio = 0, meio, fim = v.size() - 1;
 
     while(inicio <= fim) {
@@ -18,6 +21,9 @@ int busca_binaria(vector<int>& v, int e) {
 }
 
 int busca_sequencial(vector<int>& v, int e) {
+    if(!v.size())
+        return -1;
+    
     for(size_t i = 0; i < v.size(); ++i)
         if(v[i] == e)
             return i;
@@ -26,6 +32,9 @@ int busca_sequencial(vector<int>& v, int e) {
 }
 
 int busca_sequencial_sentinela(vector<int>& v, int e) {
+    if(!v.size())
+        return -1;
+    
     size_t i = 0, n = v.size();
     v.push_back(e);
 
@@ -41,6 +50,9 @@ int busca_sequencial_sentinela(vector<int>& v, int e) {
 }
 
 int busca_interpolacao(vector<int>& v, int e) {
+    if(!v.size())
+        return -1;
+    
     int inicio = 0, meio, fim = v.size() - 1;
 
     while(inicio <= fim) {
@@ -71,6 +83,9 @@ vector<int> gerar_tabela_index(vector<int>& v) {
 }
 
 int busca_sequencial_indexada(vector<int>& v, int e) {
+    if(!v.size())
+        return -1;
+    
     vector<int> index = gerar_tabela_index(v);
     unsigned int i;
 
