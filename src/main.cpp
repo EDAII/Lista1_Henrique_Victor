@@ -14,8 +14,6 @@ int main() {
     string vetor_atual = "Nenhum";
     bool modificado;
 
-    
-
     while(1) {
         system("clear");
         printf("Vetor atual: %s\n\n", vetor_atual.c_str());
@@ -26,6 +24,7 @@ int main() {
 
         switch (opcao) {
             case 1:
+                printf("Opcao escolhida: Gerar vetor aleatorio\n");
                 tempo = clock();
                 vetor_aleatorio(v);
                 tempo = clock() - tempo;
@@ -35,6 +34,7 @@ int main() {
                 pause();
                 break;
             case 2:
+                printf("Opcao escolhida: Gerar vetor de primos\n");
                 printf("Gerar primos de 1 a n.\n");
                 printf("Insira o valor de n: ");
                 scanf(" %d", &valor);
@@ -55,6 +55,7 @@ int main() {
                 pause();
                 break;
             case 3:
+                printf("Opcao escolhida: Gerar vetor de Fibonacci\n");
                 printf("Insira quantos numeros de Fibonacci deseja: ");
                 scanf(" %d", &valor);
                 while(valor < 1 || valor > 47) {
@@ -74,6 +75,7 @@ int main() {
                 pause();
                 break;
             case 4:
+                printf("Opcao escolhida: Inserir valor\n");
                 printf("Digite o elemento que deseja inserir: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -88,6 +90,7 @@ int main() {
                 pause();
                 break;
             case 5:
+                printf("Opcao escolhida: Remover valor\n");
                 printf("Digite o elemento que deseja remover: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -101,6 +104,7 @@ int main() {
                 pause();
                 break;
             case 6:
+                printf("Opcao escolhida: Busca Sequencial\n");
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -116,6 +120,7 @@ int main() {
                 pause();
                 break;
             case 7:
+                printf("Opcao escolhida: Busca Sequencial com Sentinela\n");
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -131,6 +136,7 @@ int main() {
                 pause();
                 break;
             case 8:
+                printf("Opcao escolhida: Busca Binaria\n");
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -146,6 +152,7 @@ int main() {
                 pause();
                 break;
             case 9:
+                printf("Opcao escolhida: Busca por Interpolacao\n");
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -161,6 +168,7 @@ int main() {
                 pause();
                 break;
             case 10:
+                printf("Opcao escolhida: Busca Sequencial Indexada\n");
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -175,6 +183,7 @@ int main() {
                 pause();
                 break;
             case 11:
+                printf("Opcao escolhida: Fazer todas as buscas e comparar tempos\n");
                 //Fazer todas as buscas de uma vez e comparar tempos
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
@@ -222,6 +231,7 @@ int main() {
                 pause();
                 break;
             case 12:
+                printf("Opcao escolhida: Imprimir vetor na tela\n");
                 imprimir_vetor(v);
                 pause();
                 break;
