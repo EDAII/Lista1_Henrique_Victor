@@ -14,6 +14,8 @@ int main() {
     string vetor_atual = "Nenhum";
     bool modificado;
 
+    
+
     while(1) {
         system("clear");
         printf("Vetor atual: %s\n\n", vetor_atual.c_str());
@@ -166,53 +168,41 @@ int main() {
                     printf("\nValor não encontrado.\n");
                 
                 //Busca sequencial
-                printf("\nBuscando por busca sequencial:");
+                printf("\n------------ Busca sequencial ----------> ");
                 tempo = clock();
                 encontrado = busca_sequencial(v, valor);
                 tempo = clock() - tempo;
-                printf("Tempo decorrido: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
-
-
+                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca Sequencial com sentinela                
-                printf("\nBuscando por busca sequencial com sentinela:");
-
+                printf("\n---- Busca sequencial com sentinela ----> ");
                 tempo = clock();
                 encontrado = busca_sequencial_sentinela(v, valor);
                 tempo = clock() - tempo;
-
-                
-                printf("Tempo decorrido: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca Binaria
-                printf("\nBuscando por busca binaria:");
-
+                printf("\n------------ Busca binaria -------------> ");
                 tempo = clock();
                 encontrado = busca_binaria(v, valor);
                 tempo = clock() - tempo;
-
-                
-                printf("Tempo decorrido: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca por interpolacao
-                printf("\nBuscando por interpolação:");
-
+                printf("\n-------- Busca por interpolação --------> ");
                 tempo = clock();
                 encontrado = busca_interpolacao(v, valor);
                 tempo = clock() - tempo;
-
-                
-                printf("Tempo decorrido: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
+                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //busca sequencial indexada
-                printf("\nBuscando por busca sequencial indexada:");
-
+                printf("\n------ Busca sequencial indexada -------> ");
                 tempo = clock();
                 encontrado = busca_sequencial_indexada(v, valor);
                 tempo = clock() - tempo;
+                printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
-                printf("Tempo decorrido: %.6f segundos.\n\n", ((float)tempo)/CLOCKS_PER_SEC);
-
+                
                 pause();
                 break;
             case 11:

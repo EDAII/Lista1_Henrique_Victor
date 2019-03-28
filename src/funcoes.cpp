@@ -95,4 +95,5 @@ void pause() {
     getchar();
 	printf("\nPressione 'Enter' para voltar ao menu principal\n");
 	getchar();
+    system("clear");
 }
