@@ -58,19 +58,23 @@ int busca_interpolacao(vector<int>& v, int e) {
 }
 
 vector<int> gerar_tabela_index(vector<int>& v) {
-
-    int elementos = v.size() / 10;
-    
+    int tamanho_index = v.size() / 10000;
     vector<int> index;
-    
-    if(v.size() != 0) {
-        for(unsigned int i = 0; i < v.size(); i += elementos){
-            index.push_back(v[i]);
-        }
-        return index;
-    } else {
+
+    if(tamanho_index == 0) {
+        index.push_back(0);
         return index;
     }
+
+    for(int i = 0; i < tamanho_index; ++i) {
+        unsigned int j = i * 10000;
+        if(j > v.size())
+            break;
+        
+        index.push_back(v[j]);
+    }
+
+    return index;
 }
 
 int busca_sequencial_indexada(vector<int>& v, int e) {
