@@ -46,6 +46,28 @@ void vetor_primos(vector<int>& v, int N) {
     }
 }
 
+void vetor_fibo(vector<int>& v, int N) {
+    v.clear();
+
+    int a = 0, b = 1;
+
+    v.push_back(a);
+
+    if(N < 2)
+        return;
+    
+    v.push_back(b);
+    
+    if(N < 3)
+        return;
+
+    for(int i = 2; i < N; ++i) {
+        int c = a + b;
+        v.push_back(c);
+        a = b; b = c;
+    }
+}
+
 void inserir_valor(vector<int>& v, int e) {
     v.push_back(e);
     sort(v.begin(), v.end());

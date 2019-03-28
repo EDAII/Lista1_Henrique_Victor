@@ -1,5 +1,5 @@
 CC := g++
-CFLAGS := -std=c++17 -Wall -O2
+CFLAGS := -std=c++17 -Wall
 
 SRCFILES := $(wildcard src/*.cpp)
 

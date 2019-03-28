@@ -38,11 +38,11 @@ int main() {
                 printf("Gerar primos de 1 a n.\n");
                 printf("Insira o valor de n: ");
                 scanf(" %d", &valor);
-                while(valor < 2 && valor > 50000000) {
+                while(valor < 2 || valor > 50000000) {
                     if(valor < 2)
-                        printf("Valor menor que 2, tente novamente.\n");
+                        printf("Valor nao pode ser menor que 2, tente novamente: ");
                     else
-                        printf("Valor maior que 50.000.000, tente novamente.\n");
+                        printf("Valor nao pode ser maior que 50.000.000, tente novamente: ");
                         
                     scanf(" %d", &valor);
                 }
@@ -55,6 +55,25 @@ int main() {
                 pause();
                 break;
             case 3:
+                printf("Insira quantos numeros de Fibonacci deseja: ");
+                scanf(" %d", &valor);
+                while(valor < 1 || valor > 47) {
+                    if(valor < 1)
+                        printf("Valor nao pode ser menor que 1, tente novamente: ");
+                    else
+                        printf("Valor nao pode ser maior que 47, tente novamente: ");
+                        
+                    scanf(" %d", &valor);
+                }
+                tempo = clock();
+                vetor_fibo(v, valor);
+                tempo = clock() - tempo;
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                vetor_atual = "Vetor de Fibonacci";
+                modificado = false;
+                pause();
+                break;
+            case 4:
                 printf("Digite o elemento que deseja inserir: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -68,7 +87,7 @@ int main() {
                 }
                 pause();
                 break;
-            case 4:
+            case 5:
                 printf("Digite o elemento que deseja remover: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -81,7 +100,7 @@ int main() {
                 }
                 pause();
                 break;
-            case 5:
+            case 6:
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
@@ -89,22 +108,7 @@ int main() {
                 tempo = clock() - tempo;
 
                 if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
-                else
-                    printf("\nValor não encontrado.\n");
-                
-                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
-                pause();
-                break;
-            case 6:
-                printf("Insira o elemento que deseja buscar: ");
-                scanf(" %d", &valor);
-                tempo = clock();
-                encontrado = busca_sequencial_sentinela(v, valor);
-                tempo = clock() - tempo;
-
-                if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
                 else
                     printf("\nValor não encontrado.\n");
                 
@@ -115,11 +119,11 @@ int main() {
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
-                encontrado = busca_binaria(v, valor);
+                encontrado = busca_sequencial_sentinela(v, valor);
                 tempo = clock() - tempo;
 
                 if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
                 else
                     printf("\nValor não encontrado.\n");
                 
@@ -130,11 +134,11 @@ int main() {
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
-                encontrado = busca_interpolacao(v, valor);
+                encontrado = busca_binaria(v, valor);
                 tempo = clock() - tempo;
 
                 if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
                 else
                     printf("\nValor não encontrado.\n");
                 
@@ -145,27 +149,35 @@ int main() {
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
                 tempo = clock();
+                encontrado = busca_interpolacao(v, valor);
+                tempo = clock() - tempo;
+
+                if(encontrado != -1)
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
+                else
+                    printf("\nValor não encontrado.\n");
+                
+                printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
+                pause();
+                break;
+            case 10:
+                printf("Insira o elemento que deseja buscar: ");
+                scanf(" %d", &valor);
+                tempo = clock();
                 encontrado = busca_sequencial_indexada(v, valor);
                 tempo = clock() - tempo;
 
                 if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
                 else
                     printf("\nValor não encontrado.\n");
                 printf("Tempo: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
                 pause();
                 break;
-            case 10:
+            case 11:
                 //Fazer todas as buscas de uma vez e comparar tempos
                 printf("Insira o elemento que deseja buscar: ");
                 scanf(" %d", &valor);
-
-                encontrado = busca_sequencial(v, valor);
-
-                if(encontrado != -1)
-                    printf("\nValor encontrado.\n");
-                else
-                    printf("\nValor não encontrado.\n");
                 
                 //Busca sequencial
                 printf("\n------------ Busca sequencial ----------> ");
@@ -177,35 +189,39 @@ int main() {
                 //Busca Sequencial com sentinela                
                 printf("\n---- Busca sequencial com sentinela ----> ");
                 tempo = clock();
-                encontrado = busca_sequencial_sentinela(v, valor);
+                busca_sequencial_sentinela(v, valor);
                 tempo = clock() - tempo;
                 printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca Binaria
                 printf("\n------------ Busca binaria -------------> ");
                 tempo = clock();
-                encontrado = busca_binaria(v, valor);
+                busca_binaria(v, valor);
                 tempo = clock() - tempo;
                 printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca por interpolacao
                 printf("\n-------- Busca por interpolação --------> ");
                 tempo = clock();
-                encontrado = busca_interpolacao(v, valor);
+                busca_interpolacao(v, valor);
                 tempo = clock() - tempo;
                 printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //busca sequencial indexada
                 printf("\n------ Busca sequencial indexada -------> ");
                 tempo = clock();
-                encontrado = busca_sequencial_indexada(v, valor);
+                busca_sequencial_indexada(v, valor);
                 tempo = clock() - tempo;
                 printf("Tempo decorrido: %.7f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
+                if(encontrado != -1)
+                    printf("\nValor encontrado. Posicao: %d\n", encontrado);
+                else
+                    printf("\nValor não encontrado.\n");
                 
                 pause();
                 break;
-            case 11:
+            case 12:
                 imprimir_vetor(v);
                 pause();
                 break;
@@ -225,15 +241,16 @@ void menu_principal() {
 
     printf("1. Gerar vetor aleatorio\n");
     printf("2. Gerar vetor de primos\n");
-    printf("3. Inserir valor\n");
-    printf("4. Remover valor\n");
-    printf("5. Busca Sequencial\n");
-    printf("6. Busca Sequencial com Sentinela\n");
-    printf("7. Busca Binaria\n");
-    printf("8. Busca por Interpolacao\n");
-    printf("9. Busca Sequencial Indexada\n");
-    printf("10. Fazer todas as buscas e comparar tempos\n");
-    printf("11. Imprimir vetor na tela\n");
+    printf("3. Gerar vetor de Fibonacci\n");
+    printf("4. Inserir valor\n");
+    printf("5. Remover valor\n");
+    printf("6. Busca Sequencial\n");
+    printf("7. Busca Sequencial com Sentinela\n");
+    printf("8. Busca Binaria\n");
+    printf("9. Busca por Interpolacao\n");
+    printf("10. Busca Sequencial Indexada\n");
+    printf("11. Fazer todas as buscas e comparar tempos\n");
+    printf("12. Imprimir vetor na tela\n");
     printf("0. Encerrar\n\n");
 
     printf("Opcao: ");
