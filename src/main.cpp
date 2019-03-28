@@ -210,7 +210,7 @@ int main() {
                 printf("Tempo decorrido: %.6f segundos.\n", ((float)tempo)/CLOCKS_PER_SEC);
 
                 //Busca por interpolacao
-                printf("\n-------- Busca por interpolação --------> ");
+                printf("\n-------- Busca por interpolacao --------> ");
                 tempo = clock();
                 busca_interpolacao(v, valor);
                 tempo = clock() - tempo;
