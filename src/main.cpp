@@ -27,9 +27,19 @@ int main() {
                 printf("Opcao escolhida: Gerar vetor aleatorio\n");
                 printf("Insira a quantidade de elementos: ");
                 scanf(" %d", &valor);
-                printf("A lista ira gerar %d elementos aleatorios de 0 a n.\n", valor);
+                while(valor < 1) {
+                    printf("Valor nao pode ser menor que 1, tente novamente: ");
+                    scanf(" %d", &valor);
+                }
+                printf("A lista ira gerar %d ", valor);
+                printf("%s", valor > 1 ? "elementos aleatorios " : "elemento aleatorio ");
+                printf("de 0 a n.\n");
                 printf("Insira o valor de n: ");
                 scanf(" %d", &limite);
+                while(limite < 0) {
+                    printf("Limite nao pode ser menor que 0, tente novamente: ");
+                    scanf(" %d", &limite);
+                }
                 tempo = clock();
                 vetor_aleatorio(v, valor, limite+1);
                 tempo = clock() - tempo;
